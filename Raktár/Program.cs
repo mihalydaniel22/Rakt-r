@@ -10,6 +10,8 @@ namespace Raktár
     {
         static void Main(string[] args)
         {
+
+            Console.ReadKey();
         }
     }
 }
