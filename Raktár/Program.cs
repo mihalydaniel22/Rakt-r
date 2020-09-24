@@ -23,6 +23,12 @@ namespace Raktár
         static void Main(string[] args)
         {
             BeolvasRaktar();
+
+            foreach (var t in termekek)
+            {
+                Console.WriteLine(t.Nev);
+            }
+
             Console.ReadKey();
         }
     }
