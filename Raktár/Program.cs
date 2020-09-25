@@ -26,12 +26,17 @@ namespace Raktár
             StreamReader rendeles = new StreamReader("rendeles.csv");
             while (!rendeles.EndOfStream)
             {
-                string[] sor = rendeles.ReadLine().Split(';');
-                if (sor[0] == "M")
+                string sor = rendeles.ReadLine();
+                string[] adat = sor.Split(';');
+                if (adat[0] == "M")
                 {
-                    rendelesek.Add(new Megrendeles(sor[1], sor[2], sor[3]));
+                    rendelesek.Add(new Megrendeles(adat[1], adat[2], adat[3]));
                 }
-
+                else
+                {
+                    //rendelesek[rendelesek.Count - 1].termekek.Add(sor);
+                    rendelesek[rendelesek.Count - 1].TetelHozzaad(adat[2], Convert.ToInt32(adat[3]));
+                }
             }
             rendeles.Close();
         }
